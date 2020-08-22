@@ -37,6 +37,11 @@ public class PointsNTimeCounter : MonoBehaviour
 
     private int points;
 
+    internal int GetPoints()
+    {
+        return points;
+    }
+
     private int pointsToWin;
 
     private float timeLeft;

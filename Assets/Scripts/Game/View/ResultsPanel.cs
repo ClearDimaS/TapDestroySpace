@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class ResultsPanel : MonoBehaviour
 {
     [SerializeField]
+    PointsNTimeCounter pointsNTimeCounter;
+
+    [SerializeField]
     GameStateController gameStateController;
 
     [SerializeField]
@@ -18,11 +21,6 @@ public class ResultsPanel : MonoBehaviour
 
     bool ifComplete;
 
-    //public void OnDisable()
-    //{
-    //    gameObject.SetActive(false);
-    //}
-
     public void gameOver(bool _ifComplete)
     {
         ifComplete = _ifComplete;
@@ -32,6 +30,8 @@ public class ResultsPanel : MonoBehaviour
         AudioManager.instance.Play(resultSound);
 
         UpdLevelRating(ifComplete);
+
+        points = pointsNTimeCounter.GetPoints();
 
         Debug.Log(gameObject.activeSelf + "  " + ifComplete);
         if(gameObject.activeSelf)
